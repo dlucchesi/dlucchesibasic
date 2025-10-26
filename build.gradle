@@ -18,7 +18,7 @@ dependencies {
 }
 
 group = 'com.dlucchesi'
-version = '0.0.1'
+version = '1.0.0'
 description = 'DLucchesi Basic'
 java.sourceCompatibility = JavaVersion.VERSION_21
 
