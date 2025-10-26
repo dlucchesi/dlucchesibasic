@@ -9,6 +9,11 @@ This is a starter lib to all my projects
 * JPA
 * Lombok
 
+## Tests
+run 
+```bash 
+    ./gradlew build -PrunTests
+```
 
 ## Observations
 
