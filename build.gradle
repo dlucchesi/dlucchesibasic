@@ -1,0 +1,39 @@
+
+plugins {
+    id 'java-library'
+    id 'maven-publish'
+}
+
+repositories {
+    mavenLocal()
+    maven {
+        url = uri('https://repo.maven.apache.org/maven2/')
+    }
+}
+
+dependencies {
+    api libs.org.springframework.boot.spring.boot.starter.data.jpa
+    api libs.org.projectlombok.lombok
+    testImplementation libs.org.springframework.boot.spring.boot.starter.test
+}
+
+group = 'com.dlucchesi'
+version = '0.0.1'
+description = 'DLucchesi Basic'
+java.sourceCompatibility = JavaVersion.VERSION_1_8
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            from(components.java)
+        }
+    }
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+tasks.withType(Javadoc) {
+    options.encoding = 'UTF-8'
+}
