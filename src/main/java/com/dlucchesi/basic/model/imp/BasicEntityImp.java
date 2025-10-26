@@ -1,17 +1,19 @@
 package com.dlucchesi.basic.model.imp;
 
+import com.dlucchesi.basic.model.BasicEntity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.util.Objects;
+import java.util.UUID;
 
 
 @Getter
 @Setter
 @MappedSuperclass
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public class BasicEntityImp implements com.dlucchesi.basic.model.BasicEntity {
+public abstract class BasicEntityImp implements BasicEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "un_seq")
@@ -19,6 +21,8 @@ public class BasicEntityImp implements com.dlucchesi.basic.model.BasicEntity {
     protected Long id;
     protected Boolean isDeleted;
     protected Boolean isActive;
+    @Column(nullable = false, unique = true, updatable = false)
+    protected UUID uuid;
 
     @Override
     public boolean canEqual(Object obj) {

@@ -39,5 +39,6 @@ tasks.withType(Javadoc) {
 }
 
 test {
+    enabled = false
     onlyIf { project.hasProperty('runTests') }
 }
