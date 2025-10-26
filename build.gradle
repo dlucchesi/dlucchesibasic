@@ -18,7 +18,8 @@ dependencies {
 }
 
 group = 'com.dlucchesi'
-version = '1.0.0'
+version = '1.0.2'
+ext.archivesBaseName = 'dlucchesibasic'
 description = 'DLucchesi Basic'
 java.sourceCompatibility = JavaVersion.VERSION_21
 
@@ -42,3 +43,4 @@ test {
     enabled = false
     onlyIf { project.hasProperty('runTests') }
 }
+

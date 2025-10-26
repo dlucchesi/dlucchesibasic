@@ -1,6 +1,11 @@
 package com.dlucchesi.basic.model;
 
+import jakarta.persistence.Column;
+
 public interface BasicEntity {
+
+
+    @Column(nullable = false, unique = true, updatable = false)
     boolean canEqual(Object obj);
 
     @Override

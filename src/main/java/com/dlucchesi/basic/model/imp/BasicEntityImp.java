@@ -8,12 +8,11 @@ import lombok.Setter;
 import java.util.Objects;
 import java.util.UUID;
 
-
 @Getter
 @Setter
 @MappedSuperclass
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public abstract class BasicEntityImp implements BasicEntity {
+public class BasicEntityImp implements BasicEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "un_seq")
@@ -22,7 +21,8 @@ public abstract class BasicEntityImp implements BasicEntity {
     protected Boolean isDeleted;
     protected Boolean isActive;
     @Column(nullable = false, unique = true, updatable = false)
-    protected UUID uuid;
+    protected UUID uuid = UUID.randomUUID();
+
 
     @Override
     public boolean canEqual(Object obj) {
@@ -49,5 +49,45 @@ public abstract class BasicEntityImp implements BasicEntity {
                 ", isDeleted=" + isDeleted +
                 ", isActive=" + isActive +
                 '}';
+    }
+
+    @Override
+    public Long getId() {
+        return id;
+    }
+
+    @Override
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    @Override
+    public Boolean getIsDeleted() {
+        return isDeleted;
+    }
+
+    @Override
+    public void setIsDeleted(Boolean deleted) {
+        isDeleted = deleted;
+    }
+
+    @Override
+    public Boolean getIsActive() {
+        return isActive;
+    }
+
+    @Override
+    public void setIsActive(Boolean active) {
+        isActive = active;
+    }
+
+    @Override
+    public UUID getUuid() {
+        return uuid;
+    }
+
+    @Override
+    public void setUuid(UUID uuid) {
+        this.uuid = uuid;
     }
 }
