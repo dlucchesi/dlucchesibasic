@@ -23,4 +23,8 @@ public interface BasicEntity {
     void setIsDeleted(Boolean isDeleted);
 
     void setIsActive(Boolean isActive);
+
+    java.util.UUID getUuid();
+
+    void setUuid(java.util.UUID uuid);
 }
